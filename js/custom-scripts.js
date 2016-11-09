@@ -1,6 +1,83 @@
 $(document).ready(function () {
 
     /******************************
+     ******* scroll scripts
+     ******************************/
+
+    $('nav ul li a[href^="#"]').click(function(){
+        $('nav ul li a').removeClass('active');
+        $(this).addClass('active');
+        /*if ($(window).width() < '981'){
+            $('.burger').removeClass('active');
+        }*/
+        var target = $(this).attr('href');
+        $('html, body').animate({scrollTop: $(target).offset().top - 50}, 600);
+        return false;
+    });
+
+    if ($(window).scrollTop() >= 63) {
+        $('.header-bottom').addClass('fixed');
+        $('.banner').css('margin-top', '80px');
+    } else {
+        $('.header-bottom').removeClass('fixed');
+        $('.banner').css('margin-top', '0');
+    }
+
+    if ($(window).scrollTop() < $('#price').offset().top - 200) {
+        $('nav ul li.active').removeClass('active');
+        $('nav ul li:nth-child(1)').addClass('active');
+    }
+    else if ($(window).scrollTop() < $('#projects').offset().top - 200) {
+        $('nav ul li.active').removeClass('active');
+        $('nav ul li:nth-child(2)').addClass('active');
+    }
+    else if ($(window).scrollTop() < $('#how-we-work').offset().top - 200) {
+        $('nav ul li.active').removeClass('active');
+        $('nav ul li:nth-child(3)').addClass('active');
+    }
+    else if ($(window).scrollTop() < $('.tow-car').offset().top - 200) {
+        $('nav ul li.active').removeClass('active');
+        $('nav ul li:nth-child(4)').addClass('active');
+    } else {
+        $('nav ul li.active').removeClass('active');
+        $('nav ul li:nth-child(5)').addClass('active');
+    }
+
+    $(window).scroll(function() {
+
+        if ($(window).scrollTop() >= 63) {
+            $('.header-bottom').addClass('fixed');
+            $('.banner').css('margin-top', '80px');
+        } else {
+            $('.header-bottom').removeClass('fixed');
+            $('.banner').css('margin-top', '0');
+        }
+        
+
+        if ($(window).scrollTop() < $('#price').offset().top - 200) {
+            $('nav ul li.active').removeClass('active');
+            $('nav ul li:nth-child(1)').addClass('active');
+        }
+        else if ($(window).scrollTop() < $('#projects').offset().top - 200) {
+            $('nav ul li.active').removeClass('active');
+            $('nav ul li:nth-child(2)').addClass('active');
+        }
+        else if ($(window).scrollTop() < $('#how-we-work').offset().top - 200) {
+            $('nav ul li.active').removeClass('active');
+            $('nav ul li:nth-child(3)').addClass('active');
+        }
+        else if ($(window).scrollTop() < $('.tow-car').offset().top - 200) {
+            $('nav ul li.active').removeClass('active');
+            $('nav ul li:nth-child(4)').addClass('active');
+        } else {
+            $('nav ul li.active').removeClass('active');
+            $('nav ul li:nth-child(5)').addClass('active');
+        }
+
+
+    });
+
+    /******************************
      ******* init scripts
      ******************************/
 
@@ -62,59 +139,6 @@ $(document).ready(function () {
                 }
             }
         ]
-    });
-
-    /*******************************
-     ******* digits  script ********
-     ******************************/
-    var show = true;
-    var countbox = ".digits";
-    $(window).on("scroll load resize", function() {
-
-        if (!show) return false;
-
-        var w_top = $(window).scrollTop();
-        var e_top = $(countbox).offset().top;
-
-        var w_height = $(window).height();
-        var d_height = $(document).height();
-
-        var e_height = $(countbox).outerHeight();
-
-        if (w_top + w_height * 0.8 >= e_top || w_height + w_top == d_height || e_height + e_top < w_height) {
-
-            var space_separator_number_step = $.animateNumber.numberStepFactories.separator(' ');
-
-            $('#our-years').animateNumber(
-                {
-                    number: 6,
-                    numberStep: space_separator_number_step
-                }, 1000
-            );
-
-            $('#our-logisticians').animateNumber(
-                {
-                    number: 26,
-                    numberStep: space_separator_number_step
-                }, 1300
-            );
-
-            $('#our-clients').animateNumber(
-                {
-                    number: 248,
-                    numberStep: space_separator_number_step
-                }, 2000
-            );
-
-            $('#our-offices').animateNumber(
-                {
-                    number: 8,
-                    numberStep: space_separator_number_step
-                }, 1000
-            );
-
-            show = false;
-        }
     });
 
 });
