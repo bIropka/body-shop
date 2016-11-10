@@ -98,7 +98,10 @@ $(document).ready(function () {
     /******************************
      ******* clicks
      ******************************/
-    
+
+    $('.parts-chooser li').click(function() {
+        $(this).toggleClass('active');
+    });
 
     /*******************************
      ******* slider scripts ********
