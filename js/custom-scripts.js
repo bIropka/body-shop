@@ -1,5 +1,9 @@
 $(document).ready(function () {
 
+    setTimeout(function() {
+        $('.slider').animate({opacity: 1}, 500);
+    }, 250);
+
     /******************************
      ******* scroll scripts
      ******************************/
@@ -78,71 +82,49 @@ $(document).ready(function () {
     });
 
     /******************************
-     ******* init scripts
-     ******************************/
-
-    if ($(window).width() < '992'){
-
-    } else {
-
-    }
-
-    $(window).resize(function(){
-        if ($(window).width() < '992'){
-
-        } else {
-            
-        }
-    });
-
-    /******************************
      ******* clicks
      ******************************/
 
     $('.parts-chooser li').click(function() {
         $(this).toggleClass('active');
+
+        var currentChoice = $(this).index();
+        switch (currentChoice) {
+            case 0:
+                $('#bumper-red').toggleClass()
+                break;
+            case 1:
+                $('#door-red').toggleClass()
+                break;
+            case 2:
+                $('#fenders-red').toggleClass()
+                break;
+            case 3:
+                $('#quarter-red').toggleClass()
+                break;
+            case 4:
+                $('#hood-red').toggleClass()
+                break;
+            case 5:
+                $('#trunk-red').toggleClass()
+                break;
+            case 6:
+                $('#roof-red').toggleClass()
+                break;
+            case 7:
+                $('#rockers-red').toggleClass()
+                break;
+            
+        }
+
     });
+
 
     /*******************************
      ******* slider scripts ********
      ******************************/
 
-    $('.slider-logisticians').slick({
-        slidesToShow: 6,
-        slidesToScroll: 1,
-        responsive: [
-            {
-                breakpoint: 1366,
-                settings: {
-                    slidesToShow: 5
-                }
-            },
-            {
-                breakpoint: 981,
-                settings: {
-                    slidesToShow: 4
-                }
-            },
-            {
-                breakpoint: 769,
-                settings: {
-                    slidesToShow: 3
-                }
-            },
-            {
-                breakpoint: 600,
-                settings: {
-                    slidesToShow: 2
-                }
-            },
-            {
-                breakpoint: 360,
-                settings: {
-                    slidesToShow: 1
-                }
-            }
-        ]
-    });
+    $('.slider-projects').slick();
 
 });
 
