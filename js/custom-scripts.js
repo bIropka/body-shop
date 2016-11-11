@@ -35,6 +35,30 @@ $(document).ready(function () {
      ******* scroll scripts
      ******************************/
 
+    if ($(window).width() < '981'){
+        $('.cash').addClass('active');
+        $('.cash-sub-title').addClass('active');
+        $('#how-we-work .sub-title').appendTo('.mobile-controls');
+    } else {
+        $('#how-we-work .tab').removeClass('active');
+        $('#how-we-work .sub-title').removeClass('active');
+        $('.cash-sub-title').prependTo('.cash');
+        $('.insurance-sub-title').prependTo('.insurance');
+    }
+
+    $(window).resize(function(){
+        if ($(window).width() < '981'){
+            $('.cash').addClass('active');
+            $('.cash-sub-title').addClass('active');
+            $('#how-we-work .sub-title').appendTo('.mobile-controls');
+        } else {
+            $('#how-we-work .tab').removeClass('active');
+            $('#how-we-work .sub-title').removeClass('active');
+            $('.cash-sub-title').prependTo('.cash');
+            $('.insurance-sub-title').prependTo('.insurance');
+        }
+    });
+
     $('nav ul li a[href^="#"]').click(function(){
         $('nav ul li a').removeClass('active');
         $(this).addClass('active');
@@ -47,15 +71,11 @@ $(document).ready(function () {
     });
 
     if ($(window).scrollTop() >= 63) {
-        if($(window).width() > '980') {
-            $('.header-bottom').addClass('fixed');
-            $('.banner').css('margin-top', '80px');
-        }
+        $('.header-bottom').addClass('fixed');
+        $('.banner').addClass('mt');
     } else {
-        if($(window).width() > '980') {
-            $('.header-bottom').removeClass('fixed');
-            $('.banner').css('margin-top', '0');
-        }
+        $('.header-bottom').removeClass('fixed');
+        $('.banner').removeClass('mt');
     }
 
     if ($(window).scrollTop() < $('#price').offset().top - 200) {
@@ -81,15 +101,11 @@ $(document).ready(function () {
     $(window).scroll(function() {
 
         if ($(window).scrollTop() >= 63) {
-            if($(window).width() > '980') {
                 $('.header-bottom').addClass('fixed');
-                $('.banner').css('margin-top', '80px');
-            }
+                $('.banner').addClass('mt');
         } else {
-            if($(window).width() > '980') {
                 $('.header-bottom').removeClass('fixed');
-                $('.banner').css('margin-top', '0');
-            }
+                $('.banner').removeClass('mt');
         }
         
 
@@ -119,6 +135,18 @@ $(document).ready(function () {
     /******************************
      ******* clicks
      ******************************/
+
+    $('.mobile-controls .sub-title').click(function() {
+        $(this).addClass('active');
+        $(this).siblings('.sub-title').removeClass('active');
+        if($(this).hasClass('cash-sub-title')) {
+            $('.insurance').removeClass('active');
+            $('.cash').addClass('active');
+        } else {
+            $('.cash').removeClass('active');
+            $('.insurance').addClass('active');
+        }
+    });
 
     $('.parts-chooser li').click(function() {
         $(this).toggleClass('active');
@@ -159,7 +187,18 @@ $(document).ready(function () {
      ******* slider scripts ********
      ******************************/
 
-    $('.slider-projects').slick();
+    $('.slider-projects').slick({
+        responsive: [
+            {
+                breakpoint: 981,
+                settings: {
+                    centerMode: true
+                }
+            }
+        ]
+    });
+
+    $('.slider-brands').slick();
 
 });
 
