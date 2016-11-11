@@ -47,11 +47,15 @@ $(document).ready(function () {
     });
 
     if ($(window).scrollTop() >= 63) {
-        $('.header-bottom').addClass('fixed');
-        $('.banner').css('margin-top', '80px');
+        if($(window).width() > '980') {
+            $('.header-bottom').addClass('fixed');
+            $('.banner').css('margin-top', '80px');
+        }
     } else {
-        $('.header-bottom').removeClass('fixed');
-        $('.banner').css('margin-top', '0');
+        if($(window).width() > '980') {
+            $('.header-bottom').removeClass('fixed');
+            $('.banner').css('margin-top', '0');
+        }
     }
 
     if ($(window).scrollTop() < $('#price').offset().top - 200) {
@@ -77,11 +81,15 @@ $(document).ready(function () {
     $(window).scroll(function() {
 
         if ($(window).scrollTop() >= 63) {
-            $('.header-bottom').addClass('fixed');
-            $('.banner').css('margin-top', '80px');
+            if($(window).width() > '980') {
+                $('.header-bottom').addClass('fixed');
+                $('.banner').css('margin-top', '80px');
+            }
         } else {
-            $('.header-bottom').removeClass('fixed');
-            $('.banner').css('margin-top', '0');
+            if($(window).width() > '980') {
+                $('.header-bottom').removeClass('fixed');
+                $('.banner').css('margin-top', '0');
+            }
         }
         
 
