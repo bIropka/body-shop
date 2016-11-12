@@ -39,11 +39,13 @@ $(document).ready(function () {
         $('.cash').addClass('active');
         $('.cash-sub-title').addClass('active');
         $('#how-we-work .sub-title').appendTo('.mobile-controls');
+        $('.languages').prependTo('nav');
     } else {
         $('#how-we-work .tab').removeClass('active');
         $('#how-we-work .sub-title').removeClass('active');
         $('.cash-sub-title').prependTo('.cash');
         $('.insurance-sub-title').prependTo('.insurance');
+        $('.languages').prependTo('.header-top .wrapper');
     }
 
     $(window).resize(function(){
@@ -51,20 +53,22 @@ $(document).ready(function () {
             $('.cash').addClass('active');
             $('.cash-sub-title').addClass('active');
             $('#how-we-work .sub-title').appendTo('.mobile-controls');
+            $('.languages').prependTo('nav');
         } else {
             $('#how-we-work .tab').removeClass('active');
             $('#how-we-work .sub-title').removeClass('active');
             $('.cash-sub-title').prependTo('.cash');
             $('.insurance-sub-title').prependTo('.insurance');
+            $('.languages').prependTo('.header-top .wrapper');
         }
     });
 
     $('nav ul li a[href^="#"]').click(function(){
         $('nav ul li a').removeClass('active');
         $(this).addClass('active');
-        /*if ($(window).width() < '981'){
-            $('.burger').removeClass('active');
-        }*/
+        if ($(window).width() < '981'){
+            $('nav').slideUp(200);
+        }
         var target = $(this).attr('href');
         $('html, body').animate({scrollTop: $(target).offset().top - 50}, 600);
         return false;
@@ -135,6 +139,10 @@ $(document).ready(function () {
     /******************************
      ******* clicks
      ******************************/
+
+    $('.burger').click(function() {
+        $('nav').slideToggle(200);
+    });
 
     $('.mobile-controls .sub-title').click(function() {
         $(this).addClass('active');
