@@ -140,6 +140,16 @@ $(document).ready(function () {
      ******* clicks
      ******************************/
 
+    $('.get-callback').click(function () {
+        $('.window').fadeIn();
+    });
+    
+    $('.window').click(function (event) {
+        $target = $(event.target);
+        if (!$target.closest($('form')).length) $('.window').fadeOut();
+        if ($target.hasClass('close-window')) $('.window').fadeOut();
+    });
+    
     $('.burger').click(function() {
         $('nav').slideToggle(200);
     });
