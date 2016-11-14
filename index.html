@@ -222,7 +222,7 @@
 
             </ul>
 
-            <ul class="slide">
+            <ul class="slide slide-2">
 
                 <li>
                     <div class="icon-brand"></div>
@@ -263,7 +263,7 @@
 
             </ul>
 
-            <ul class="slide">
+            <ul class="slide slide-3">
 
                 <li>
                     <div class="icon-brand"></div>
@@ -9396,7 +9396,7 @@ znpS5TgAAAAASUVORK5CYII=" transform="matrix(1 0 0 1 -5 138.75)">
 
         </div>
 
-        <form action="#" class="form-get-price">
+        <form action="#" id="form-price" class="form-get-price">
 
             <fieldset class="upload-set">
 
@@ -9595,26 +9595,26 @@ znpS5TgAAAAASUVORK5CYII=" transform="matrix(1 0 0 1 -5 138.75)">
 
         </div>
 
-        <form action="#" class="form-tow-car">
+        <form action="#" id="form-tow-car" class="form-tow-car">
 
             <label class="slant phone phone-country">
-                <input type="text" placeholder="+7">
+                <input type="text" id='tow-car-tel-country' name='tow-car-tel-country' placeholder="+7">
             </label>
 
             <label class="slant phone phone-operator">
-                <input type="text" placeholder="123">
+                <input type="text" id='tow-car-tel-operator' name='tow-car-tel-operator' placeholder="123">
             </label>
 
             <label class="slant phone phone-number">
-                <input type="text" placeholder="4567890">
+                <input type="text" id='tow-car-tel-number' name='tow-car-tel-number' placeholder="4567890">
             </label>
 
             <label class="slant">
-                <input type="text" placeholder="Address">
+                <input type="text" id='tow-car-address' name='tow-car-address' placeholder="Address">
             </label>
 
             <label class="slant">
-                <input type="text" placeholder="Name">
+                <input type="text" id='tow-car-name' name='tow-car-name' placeholder="Name">
             </label>
 
             <button type="submit" class='button-rectangle'>tow my car</button>
@@ -9765,7 +9765,7 @@ znpS5TgAAAAASUVORK5CYII=" transform="matrix(1 0 0 1 -5 138.75)">
 </section>
 
 <section class="on-map">
-    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2969.012301274106!2d-87.84283318455775!3d41.91409427921932!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x880fcabbf9daa403%3A0x4b7d1914078a6ad8!2zMTkxMCA1dGggQXZlLCBSaXZlciBHcm92ZSwgSUwgNjAxNzEsINCh0KjQkA!5e0!3m2!1sru!2sua!4v1478719664033" width="100%" height="550" frameborder="0" style="border:0" allowfullscreen></iframe>
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2969.012301274106!2d-87.84283318455775!3d41.91409427921932!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x880fcabbf9daa403%3A0x4b7d1914078a6ad8!2zMTkxMCA1dGggQXZlLCBSaXZlciBHcm92ZSwgSUwgNjAxNzEsINCh0KjQkA!5e0!3m2!1sru!2sua!4v1478719664033" width="100%" height="100%" frameborder="0" style="border:0" allowfullscreen></iframe>
 </section>
 
 <footer role="contentinfo">
@@ -9790,7 +9790,7 @@ znpS5TgAAAAASUVORK5CYII=" transform="matrix(1 0 0 1 -5 138.75)">
 
         <div class="devitech">
             <p>Designed and developed</p>
-            <a href="#"></a>
+            <a href="http://devitech.us"></a>
         </div>
 
     </div>
@@ -9799,7 +9799,7 @@ znpS5TgAAAAASUVORK5CYII=" transform="matrix(1 0 0 1 -5 138.75)">
 
 <div class="window">
 
-    <form action="#">
+    <form action="mail-modal.php" id="form-modal">
 
         <div class="close-marker"><span class="close-window">&#10006;</span></div>
 
@@ -9808,24 +9808,26 @@ znpS5TgAAAAASUVORK5CYII=" transform="matrix(1 0 0 1 -5 138.75)">
         <div class="sub-title">Live  your contact information and our expert call you back to answer all questions</div>
 
         <label class="slant">
-            <input type="text" placeholder="Name">
+            <input type="text" id="modal-name" name="modal-name" placeholder="Name">
         </label>
 
         <label class="slant">
-            <input type="text" placeholder="Email">
+            <input type="text" id="modal-email" name="modal-email" placeholder="Email">
         </label>
 
         <label class="slant phone phone-country">
-            <input type="text" placeholder="+7">
+            <input type="text" id="modal-tel-country" name="modal-tel-country" placeholder="+7">
         </label>
 
         <label class="slant phone phone-operator">
-            <input type="text" placeholder="123">
+            <input type="text" id="modal-tel-operator" name="modal-tel-operator" placeholder="123">
         </label>
 
         <label class="slant phone phone-number">
-            <input type="text" placeholder="4567890">
+            <input type="text" id="modal-tel-number" name="modal-tel-number" placeholder="4567890">
         </label>
+
+        <p class="field-message"></p>
 
         <button type="submit" class="button-rectangle">get consultation</button>
 
@@ -9834,8 +9836,6 @@ znpS5TgAAAAASUVORK5CYII=" transform="matrix(1 0 0 1 -5 138.75)">
 </div>
 
 <script src="js/jquery-3.1.0.min.js"></script>
-<script src="js/validatr.min.js"></script>
-<script src="js/jquery.maskedinput.min.js"></script>
 <script src="js/slick.min.js"></script>
 <script src="js/custom-scripts.js"></script>
 </body>

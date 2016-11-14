@@ -166,38 +166,187 @@ $(document).ready(function () {
         }
     });
 
+    $('.car ul li').hover(function() {
+
+        var currentPart = $(this).attr('class');
+        switch (currentPart) {
+
+            case 'bumper':
+                if (!$('#bumper-red').hasClass('active')) {
+                    $('#bumper-red').addClass('active');
+                } else {
+                    $('#bumper-red').addClass('chosen');
+                }
+                break;
+
+            case 'door':
+                if (!$('#door-red').hasClass('active')) {
+                    $('#door-red').addClass('active');
+                } else {
+                    $('#door-red').addClass('chosen');
+                }
+                break;
+
+            case 'fenders':
+                if (!$('#fenders-red').hasClass('active')) {
+                    $('#fenders-red').addClass('active');
+                } else {
+                    $('#fenders-red').addClass('chosen');
+                }
+                break;
+
+            case 'quarter-panels':
+                if (!$('#quarter-red').hasClass('active')) {
+                    $('#quarter-red').addClass('active');
+                } else {
+                    $('#quarter-red').addClass('chosen');
+                }
+                break;
+
+            case 'hood':
+                if (!$('#hood-red').hasClass('active')) {
+                    $('#hood-red').addClass('active');
+                } else {
+                    $('#hood-red').addClass('chosen');
+                }
+                break;
+
+            case 'trunk':
+                if (!$('#trunk-red').hasClass('active')) {
+                    $('#trunk-red').addClass('active');
+                } else {
+                    $('#trunk-red').addClass('chosen');
+                }
+                break;
+
+            case 'roof':
+                if (!$('#roof-red').hasClass('active')) {
+                    $('#roof-red').addClass('active');
+                } else {
+                    $('#roof-red').addClass('chosen');
+                }
+                break;
+
+            case 'rockers':
+                if (!$('#rockers-red').hasClass('active')) {
+                    $('#rockers-red').addClass('active');
+                } else {
+                    $('#rockers-red').addClass('chosen');
+                }
+                break;
+        }
+
+    },
+    function() {
+
+        var currentPart = $(this).attr('class');
+        switch (currentPart) {
+
+            case 'bumper':
+                if ($('#bumper-red').hasClass('chosen')) {
+                    $('#bumper-red').removeClass('chosen');
+                } else {
+                    $('#bumper-red').removeClass('active');
+                }
+                break;
+
+            case 'door':
+                if ($('#door-red').hasClass('chosen')) {
+                    $('#door-red').removeClass('chosen');
+                } else {
+                    $('#door-red').removeClass('active');
+                }
+                break;
+
+            case 'fenders':
+                if ($('#fenders-red').hasClass('chosen')) {
+                    $('#fenders-red').removeClass('chosen');
+                } else {
+                    $('#fenders-red').removeClass('active');
+                }
+                break;
+
+            case 'quarter-panels':
+                if ($('#quarter-red').hasClass('chosen')) {
+                    $('#quarter-red').removeClass('chosen');
+                } else {
+                    $('#quarter-red').removeClass('active');
+                }
+                break;
+
+            case 'hood':
+                if ($('#hood-red').hasClass('chosen')) {
+                    $('#hood-red').removeClass('chosen');
+                } else {
+                    $('#hood-red').removeClass('active');
+                }
+                break;
+
+            case 'trunk':
+                if ($('#trunk-red').hasClass('chosen')) {
+                    $('#trunk-red').removeClass('chosen');
+                } else {
+                    $('#trunk-red').removeClass('active');
+                }
+                break;
+
+            case 'roof':
+                if ($('#roof-red').hasClass('chosen')) {
+                    $('#roof-red').removeClass('chosen');
+                } else {
+                    $('#roof-red').removeClass('active');
+                }
+                break;
+
+            case 'rockers':
+                if ($('#rockers-red').hasClass('chosen')) {
+                    $('#rockers-red').removeClass('chosen');
+                } else {
+                    $('#rockers-red').removeClass('active');
+                }
+                break;
+        }
+
+    });
+
     $('.parts-chooser li').click(function() {
         $(this).toggleClass('active');
 
         var currentChoice = $(this).index();
         switch (currentChoice) {
             case 0:
-                $('#bumper-red').toggleClass()
+                $('#bumper-red').toggleClass('active');
                 break;
             case 1:
-                $('#door-red').toggleClass()
+                $('#door-red').toggleClass('active');
                 break;
             case 2:
-                $('#fenders-red').toggleClass()
+                $('#fenders-red').toggleClass('active');
                 break;
             case 3:
-                $('#quarter-red').toggleClass()
+                $('#quarter-red').toggleClass('active');
                 break;
             case 4:
-                $('#hood-red').toggleClass()
+                $('#hood-red').toggleClass('active');
                 break;
             case 5:
-                $('#trunk-red').toggleClass()
+                $('#trunk-red').toggleClass('active');
                 break;
             case 6:
-                $('#roof-red').toggleClass()
+                $('#roof-red').toggleClass('active');
                 break;
             case 7:
-                $('#rockers-red').toggleClass()
+                $('#rockers-red').toggleClass('active');
                 break;
             
         }
 
+    });
+    
+    $('.upload-set input').on('change', function() {
+        
+        $(this).parent().addClass('filled');
+        
     });
 
 
@@ -217,6 +366,42 @@ $(document).ready(function () {
     });
 
     $('.slider-brands').slick();
+
+    /*******************************
+     ******* forms scripts *********
+     ******************************/
+
+    $(function($) {
+        $('form').validatr({
+            showall: true,
+            valid: function() {
+                // Получение ID формы
+                var fieldMessage = $(this).find('.field-message');
+                var formID = $(this).attr('id');
+                // Добавление решётки к имени ID
+                var formNm = $('#' + formID);
+                var scriptFile;
+                if (formID == 'form-price') scriptFile = 'mail-price.php';
+                if (formID == 'form-tow-car') scriptFile = 'mail-tow-car.php';
+                if (formID == 'form-modal') scriptFile = 'mail-modal.php';
+                $.ajax({
+                    type: "POST",
+                    url: scriptFile,
+                    data: formNm.serialize(),
+                    success: function (data) {
+                        $(fieldMessage).addClass('success');
+                        $(fieldMessage).html('Success!!!');
+                    },
+                    error: function (data) {
+                        $(fieldMessage).addClass('error');
+                        $(fieldMessage).html('Error!!!');
+
+                    }
+                });
+                return false;
+            }
+        });
+    });
 
 });
 
