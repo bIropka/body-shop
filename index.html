@@ -9396,47 +9396,50 @@ znpS5TgAAAAASUVORK5CYII=" transform="matrix(1 0 0 1 -5 138.75)">
 
         </div>
 
-        <form action="#" id="form-price" class="form-get-price">
+        <form action="mail-price.php" id="form-price" class="form-get-price">
 
             <fieldset class="upload-set">
 
                 <label>
-                    <input type="file">
+                    <input type="file" id='price-file-1' name='price-file-1'>
                 </label>
 
                 <label>
-                    <input type="file">
+                    <input type="file" id='price-file-2' name='price-file-1'>
                 </label>
 
                 <label>
-                    <input type="file">
+                    <input type="file" id='price-file-3' name='price-file-1'>
                 </label>
 
                 <label>
-                    <input type="file">
+                    <input type="file" id='price-file-4' name='price-file-1'>
                 </label>
 
             </fieldset>
 
             <label class="slant">
-                <input type="text" placeholder="Name">
+                <input type="text" id='price-tel-name' name='price-tel-name' placeholder="Name">
             </label>
 
             <label class="slant phone phone-country">
-                <input type="text" placeholder="+7">
+                <input type="text" id='price-tel-country' name='price-tel-country' placeholder="+7">
             </label>
 
             <label class="slant phone phone-operator">
-                <input type="text" placeholder="123">
+                <input type="text" id='price-tel-operator' name='price-tel-operator' placeholder="123">
             </label>
 
             <label class="slant phone phone-number">
-                <input type="text" placeholder="4567890">
+                <input type="text" id='price-tel-number' name='price-tel-number' placeholder="4567890">
             </label>
 
             <label class="slant">
-                <input type="text" placeholder="Email">
+                <input type="text" id='price-email' name='price-email' placeholder="Email">
             </label>
+            </label>
+
+            <p class="field-message"></p>
 
             <button type="submit" class="button-rectangle">calculate the cost</button>
 
@@ -9616,6 +9619,9 @@ znpS5TgAAAAASUVORK5CYII=" transform="matrix(1 0 0 1 -5 138.75)">
             <label class="slant">
                 <input type="text" id='tow-car-name' name='tow-car-name' placeholder="Name">
             </label>
+            </label>
+
+            <p class="field-message"></p>
 
             <button type="submit" class='button-rectangle'>tow my car</button>
 
@@ -9836,6 +9842,7 @@ znpS5TgAAAAASUVORK5CYII=" transform="matrix(1 0 0 1 -5 138.75)">
 </div>
 
 <script src="js/jquery-3.1.0.min.js"></script>
+<script src="js/validatr.min.js"></script>
 <script src="js/slick.min.js"></script>
 <script src="js/custom-scripts.js"></script>
 </body>

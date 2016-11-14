@@ -6,14 +6,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (isset($_POST['tow-car-tel-operator'])) {$telOperator = $_POST['tow-car-tel-operator'];}
     if (isset($_POST['tow-car-tel-number'])) {$telNumber = $_POST['tow-car-tel-number'];}
 
-    $to = "biropka@gmail.com";
+    $to = "amgcollisioncenter@gmail.com".",support@dev-itech.com";
     $sendfrom   = "body-shop";
     $headers  = "From: " . strip_tags($sendfrom) . "\r\n";
     $headers .= "Reply-To: ". strip_tags($sendfrom) . "\r\n";
     $headers .= "MIME-Version: 1.0\r\n";
     $headers .= "Content-Type: text/html;charset=utf-8 \r\n";
     $subject = "$formData";
-    $message = "$formData <br><b>You get order! </b> <br> <b>Client`s name:</b> $name <br><b>Client address:</b> $address <br> <b>Phone number:</b> $telCountry + ' (' + $telOperator + ') ' + $telNumber";
+    $message = "$formData <br><b>You get order! </b> <br> <b>Client`s name:</b> $name <br><b>Client address:</b> $address <br> <b>Phone number:</b> $telCountry &nbsp;( $telOperator )&nbsp; $telNumber";
     $send = mail ($to, $subject, $message, $headers);
     if ($send == 'true')
     {
